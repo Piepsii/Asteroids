@@ -13,7 +13,7 @@ Game::Game(unsigned int &screenWidth, unsigned int &screenHeight, const char* &t
 	m_scoreText.setPosition(24, 40);
 	m_scoreText.setCharacterSize(25);
 	m_lostText.setFont(m_font);
-	m_lostText.setString("You have lost.");
+	m_lostText.setString("You have lost man.");
 	m_lostText.setPosition(static_cast<float>(config::WIDTH) / 2, static_cast<float>(config::HEIGHT) / 2);
 	m_lostText.setOrigin(m_lostText.getGlobalBounds().width / 2, m_lostText.getGlobalBounds().height / 2);
 	m_wonText.setFont(m_font);
