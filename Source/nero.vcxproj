@@ -147,7 +147,7 @@
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /d $(SolutionDir)..\External\SFML\bin\*.* $(OutputPath)</Command>
+      <Command>copy /d "$(SolutionDir)..\External\SFML\bin\*.*" "$(OutputPath)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

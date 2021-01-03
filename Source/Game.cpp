@@ -13,13 +13,11 @@ Game::Game(unsigned int &screenWidth, unsigned int &screenHeight, const char* &t
 	m_scoreText.setPosition(24, 40);
 	m_scoreText.setCharacterSize(25);
 	m_lostText.setFont(m_font);
-	m_lostText.setString("You have lost man.");
+	m_lostText.setString("");
 	m_lostText.setPosition(static_cast<float>(config::WIDTH) / 2, static_cast<float>(config::HEIGHT) / 2);
-	m_lostText.setOrigin(m_lostText.getGlobalBounds().width / 2, m_lostText.getGlobalBounds().height / 2);
 	m_wonText.setFont(m_font);
-	m_wonText.setString("You have won.");
+	m_wonText.setString("");
 	m_wonText.setPosition(static_cast<float>(config::WIDTH) / 2, static_cast<float>(config::HEIGHT) / 2);
-	m_wonText.setOrigin(m_wonText.getGlobalBounds().width / 2, m_wonText.getGlobalBounds().height / 2);
 	m_soundPopBuffer.loadFromFile("../Assets/pop.wav");
 	m_soundTeleportBuffer.loadFromFile("../Assets/teleport.wav");
 	m_soundThrustBuffer.loadFromFile("../Assets/thrust.wav");
@@ -108,9 +106,11 @@ bool Game::Update(float deltaTime)
 		break;
 	case GameState::LOST:
 		m_lostText.setString("You have lost.\n   Score: " + std::to_string(m_score));
+		m_lostText.setOrigin(m_lostText.getGlobalBounds().width / 2, m_lostText.getGlobalBounds().height / 2);
 		break;
 	case GameState::WON:
 		m_lostText.setString("You have won.\n   Score: " + std::to_string(m_score));
+		m_wonText.setOrigin(m_wonText.getGlobalBounds().width / 2, m_wonText.getGlobalBounds().height / 2);
 		break;
 	}
 	return true;
@@ -173,11 +173,11 @@ void Game::handleInput()
 	}
 	if (m_inputManager->isKeyDown(sf::Keyboard::Left))
 	{
-		buttonLeft->execute(m_ship, -1.0f);
+		buttonLeft->execute(m_ship, -1.5f);
 	}
 	if (m_inputManager->isKeyDown(sf::Keyboard::Right))
 	{
-		buttonLeft->execute(m_ship, 1.0f);
+		buttonRight->execute(m_ship, 1.5f);
 	}
 	if (m_inputManager->isKeyPressed(sf::Keyboard::Q))
 	{
