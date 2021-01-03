@@ -1,3 +1,5 @@
+// Paul Brandstetter. DOD: 03.01.2021
+
 #include "Game.h"
 
 Game::Game(unsigned int &screenWidth, unsigned int &screenHeight, const char* &title, InputManager& _inputManager)
